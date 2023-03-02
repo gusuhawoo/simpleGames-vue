@@ -12,41 +12,41 @@
       <div v-if="liked" class="liked">Thank You❣️</div>
       <button v-else v-on:click="onClickButton">Like</button>
     </div>
-  </body>
-  <script>
-    const app = new Vue({
-      el: '#root',
-      data: {
-        liked: false,
-      },
-      methods: {
-        onClickButton() {
-          this.liked = true;
+    <script>
+      const app = new Vue({
+        el: '#root',
+        data: {
+          liked: false,
         },
-      },
-    });
-  </script>
-  <style>
-    body {
-      font-family: 'Raleway', sans-serif;
-      line-height: 1.5em;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    button {
-      padding: 10px 30px;
-      color: white;
-      font-size: 50px;
-      background-color: orange;
-      border: none;
-      border-radius: 50px;
-    }
-    .liked {
-      color: orange;
-      font-size: 50px;
-    }
-  </style>
+        methods: {
+          onClickButton() {
+            this.liked = true;
+          },
+        },
+      });
+    </script>
+    <style>
+      body {
+        font-family: 'Raleway', sans-serif;
+        line-height: 1.5em;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      button {
+        padding: 10px 30px;
+        color: white;
+        font-size: 50px;
+        background-color: orange;
+        border: none;
+        border-radius: 50px;
+      }
+      .liked {
+        color: orange;
+        font-size: 50px;
+      }
+    </style>
+  </body>
 </html>
