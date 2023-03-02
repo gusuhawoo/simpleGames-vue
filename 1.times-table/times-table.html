@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Times Table</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <div>If {{first}} multiplied by {{second}}?</div>
+      <form>
+        <input type="number" v-model="value" />
+        <button>Input</button>
+        <div v-if="value">{{value}}</div>
+        <div v-else style="color: red">Please enter a number.</div>
+      </form>
+      <div id="result"></div>
+    </div>
+    <script>
+      const app = new Vue({
+        el: '#root',
+        data: {
+          first: Math.ceil(Math.random() * 9),
+          second: Math.ceil(Math.random() * 9),
+          value: '',
+          result: '',
+        },
+        methods: {},
+      });
+    </script>
+    <style>
+      body {
+        font-family: 'Raleway', sans-serif;
+        line-height: 1.5em;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </body>
+</html>
