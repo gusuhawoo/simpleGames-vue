@@ -10,13 +10,11 @@
   <body>
     <div id="root">
       <div>If {{first}} multiplied by {{second}}?</div>
-      <form>
-        <input type="number" v-model="value" />
-        <button>Input</button>
-        <div v-if="value">{{value}}</div>
-        <div v-else style="color: red">Please enter a number.</div>
+      <form v-on:submit="onSubmitForm">
+        <input type="number" v-model="value" ref="answer" />
+        <button type="submit">Input</button>
       </form>
-      <div id="result"></div>
+      <div id="result">{{result}}</div>
     </div>
     <script>
       const app = new Vue({
@@ -27,14 +25,26 @@
           value: '',
           result: '',
         },
-        methods: {},
+        methods: {
+          onSubmitForm(e) {
+            e.preventDefault(); // Preventing a refresh.
+            if (this.first * this.second === parseInt(this.value)) {
+              this.result = "That's correct!";
+              this.first = Math.ceil(Math.random() * 9);
+              this.second = Math.ceil(Math.random() * 9);
+              this.value = '';
+              this.$refs.answer.focus();
+            } else {
+              this.result = 'Oh, no! Please re-enter.';
+              this.value = '';
+              this.$refs.answer.focus();
+            }
+          },
+        },
       });
     </script>
     <style>
       body {
-        font-family: 'Raleway', sans-serif;
-        line-height: 1.5em;
-        margin: 0;
         display: flex;
         justify-content: center;
         align-items: center;
